@@ -37,11 +37,6 @@ void CategoryAmountAdded(object sender, EventArgs args)
     Console.WriteLine("(Amount is added)\n");
 }
 
-void EmployeeGradeAdded(object sender, EventArgs args)
-{
-    Console.WriteLine("New grade is added");
-}
-
 
 void AddToCategory(string name, ICategory category)
 {
@@ -60,10 +55,14 @@ void AddToCategory(string name, ICategory category)
     }
     catch (Exception e)
     {
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("==================================");
         Console.WriteLine($"Exception is catched: {e}");
+        Console.WriteLine("==================================\n");
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
     }
-    Console.WriteLine("Choose category");
 
+    Console.WriteLine("Choose category");
 }
 
 while (appIsActive)
@@ -73,51 +72,50 @@ while (appIsActive)
 
     while (input != null)
     {
-
-        while (input == "A")
+        if (input == "A")
         {
             AddToCategory("Food", foodCategory);
             input = Console.ReadLine().ToUpper();
         }
 
 
-        while (input == "B")
+        else if (input == "B")
         {
             AddToCategory("Education", educationCategory);
             input = Console.ReadLine().ToUpper();
         }
 
-        while (input == "C")
+        else if (input == "C")
         {
             AddToCategory("Recreation", recreationCategory);
             input = Console.ReadLine().ToUpper();
         }
 
-        while (input == "D")
+        else if (input == "D")
         {
             AddToCategory("Housing fees", housingFeesCategory);
             input = Console.ReadLine().ToUpper();
         }
 
-        while (input == "E")
+        else if (input == "E")
         {
             AddToCategory("House stuff", houseStuffCategory);
             input = Console.ReadLine().ToUpper();
         }
 
-        while (input == "F")
+        else if (input == "F")
         {
             AddToCategory("Clothes", clothesCategory);
             input = Console.ReadLine().ToUpper();
         }
 
-        while (input == "G")
+        else if (input == "G")
         {
             AddToCategory("Other", otherCategory);
             input = Console.ReadLine().ToUpper();
         }
 
-        while (input == "H")
+        else if (input == "H")
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             foodCategory.ShowStatistics(foodCategory);
@@ -132,11 +130,16 @@ while (appIsActive)
             input = Console.ReadLine();
         }
 
-        if (input == "X")
+        else if (input == "X")
         {
-
             appIsActive = false;
             break;
+        }
+
+        else
+        {
+            Console.WriteLine("Choose real category");
+            input = Console.ReadLine().ToUpper();
         }
     }
 
