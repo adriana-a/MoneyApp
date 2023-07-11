@@ -14,6 +14,8 @@ Console.WriteLine("Choose category to add amounts: \n" +
         "H - show statistics\n" +
         "X - close MoneyApp \n");
 
+
+
 var foodCategory = new CategoryInFile("Food", "food_amounts.txt");
 var educationCategory = new CategoryInFile("Education", "education_amounts.txt");
 var recreationCategory = new CategoryInFile("Recreation", "recreation_amounts.txt");

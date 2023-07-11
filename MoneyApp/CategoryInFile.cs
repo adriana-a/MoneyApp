@@ -85,10 +85,25 @@ namespace MoneyApp
         public void ShowStatistics(CategoryInFile category)
         {
             Console.WriteLine($"Category {category.Name}");
-            Console.WriteLine($"Max value: {category.GetStatistics().Max}");
-            Console.WriteLine($"Min value: {category.GetStatistics().Min}");
-            Console.WriteLine($"Sum of values: {category.GetStatistics().Sum}");
-            Console.WriteLine($"Average value: {category.GetStatistics().Average}");
+
+            if (category.GetStatistics().Count != 0)
+            {
+                Console.WriteLine($"Max value: {category.GetStatistics().Max}");
+                Console.WriteLine($"Min value: {category.GetStatistics().Min}");
+                Console.WriteLine($"Sum of values: {category.GetStatistics().Sum}");
+                Console.WriteLine($"Average value: {category.GetStatistics().Average}");
+            }
+
+            else
+            {
+                Console.WriteLine("Max value: 0");
+                Console.WriteLine("Min value: 0");
+                Console.WriteLine($"Sum of values: 0");
+                Console.WriteLine($"Average value: 0");
+            }
+
+            
+            
             Console.WriteLine("=========================");
         }
     }
